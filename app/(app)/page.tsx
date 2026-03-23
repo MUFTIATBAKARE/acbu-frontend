@@ -18,6 +18,7 @@ import { PageContainer } from '@/components/layout/page-container';
 import { useApiOpts } from '@/hooks/use-api';
 import * as transfersApi from '@/lib/api/transfers';
 import type { TransferItem } from '@/types/api';
+import { cn, formatAmount } from '@/lib/utils';
 
 const BALANCE_PLACEHOLDER = '—'; // TODO: GET /users/me/balance when available
 
@@ -147,7 +148,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="flex items-center justify-between pl-11">
-                      <p className="text-sm font-semibold text-foreground">- AFK {t.amount_acbu ?? '—'}</p>
+                      <p className="text-sm font-semibold text-foreground">- AFK {formatAmount(t.amount_acbu)}</p>
                       <Badge variant="outline" className="text-xs">{t.status}</Badge>
                     </div>
                   </Link>
